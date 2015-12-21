@@ -75,7 +75,8 @@ existing perspective of the project unless we're already in that
 perspective."
   (interactive (list (projectile-completing-read "Switch to project: "
                                                  (projectile-relevant-known-projects))))
-  (let* ((name (file-name-nondirectory (directory-file-name project-to-switch)))
+  (let* ((name (or projectile-project-name
+                   (funcall projectile-project-name-function project-to-switch)))
          (persp (gethash name (perspectives-hash))))
     (cond
      ;; project-specific perspective already exists

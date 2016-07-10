@@ -1,3 +1,8 @@
+[![License GPL 3][badge-license]](http://www.gnu.org/licenses/gpl-3.0.txt)
+[![MELPA](http://melpa.org/packages/persp-projectile-badge.svg)](http://melpa.org/#/persp-projectile)
+[![MELPA Stable](http://stable.melpa.org/packages/persp-projectile-badge.svg)](http://stable.melpa.org/#/persp-projectile)
+[![Gratipay Team](https://img.shields.io/gratipay/team/projectile.svg?maxAge=2592000)](https://gratipay.com/projectile/)
+
 ## persp-projectile
 
 [Perspective](https://github.com/nex3/perspective-el) is a minor mode

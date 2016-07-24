@@ -31,6 +31,9 @@ install perspective. You can install it by:
 M-x package-install
 ```
 
+Alternatively, users of Debian 9 or later or Ubuntu 16.04 or later can
+`apt-get install elpa-persp-projectile`.
+
 Then type `perspective` in the minibuffer, as below:
 
 ```

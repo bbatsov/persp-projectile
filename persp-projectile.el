@@ -62,20 +62,14 @@ project, this advice creates a new perspective for that project."
 (projectile-persp-bridge projectile-dired)
 (projectile-persp-bridge projectile-find-file)
 
-;;;###autoload
-(defun projectile-persp-switch-project (project-to-switch)
-  "Switch to a project or perspective we have visited before.
-If the perspective of corresponding project does not exist, this
-function will call `persp-switch' to create one and switch to
-that before `projectile-switch-project' invokes
-`projectile-switch-project-action'.
+(defun projectile-persp-create-or-switch-to-persp (project &rest args)
+  "Switch to a PROJECT with ARGS .
+If the perspective of corresponding project does not exist, create it.
 
 Otherwise, this function calls `persp-switch' to switch to an
 existing perspective of the project unless we're already in that
 perspective."
-  (interactive (list (projectile-completing-read "Switch to project: "
-                                                 (projectile-relevant-known-projects))))
-  (let* ((name (file-name-nondirectory (directory-file-name project-to-switch)))
+  (let* ((name (file-name-nondirectory (directory-file-name project)))
          (persp (gethash name perspectives-hash)))
     (cond
      ;; project-specific perspective already exists
@@ -85,21 +79,19 @@ perspective."
      ((not persp)
       (let ((frame (selected-frame)))
         (persp-switch name)
-        (projectile-switch-project-by-name project-to-switch)
-        ;; Clean up if we switched to a new frame. `helm' for one allows finding
-        ;; files in new frames so this is a real possibility.
         (when (not (equal frame (selected-frame)))
           (with-selected-frame frame
-            (persp-kill name))))))))
+            (persp-kill name))))
+      ))))
+
+(advice-add 'projectile-switch-project-by-name
+            :around #'projectile-persp-create-or-switch-to-persp)
 
 (defadvice persp-init-frame (after projectile-persp-init-frame activate)
-  "Rename initial perspective to `projectile-project-name' when a
-new frame is created in a known project."
+  "Rename  perspective to `projectile-project-name' when a new frame is created in a known project."
   (with-selected-frame frame
     (when (projectile-project-p)
       (persp-rename (projectile-project-name)))))
-
-(define-key projectile-mode-map [remap projectile-switch-project] 'projectile-persp-switch-project)
 
 (provide 'persp-projectile)
 ;;; persp-projectile.el ends here

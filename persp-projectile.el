@@ -76,7 +76,7 @@ perspective."
   (interactive (list (projectile-completing-read "Switch to project: "
                                                  (projectile-relevant-known-projects))))
   (let* ((name (file-name-nondirectory (directory-file-name project-to-switch)))
-         (persp (gethash name perspectives-hash)))
+         (persp (gethash name (perspectives-hash))))
     (cond
      ;; project-specific perspective already exists
      ((and persp (not (equal persp persp-curr)))

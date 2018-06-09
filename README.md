@@ -51,3 +51,5 @@ handy keybinding.
 ```el
 (define-key projectile-mode-map (kbd "s-s") 'projectile-persp-switch-project)
 ```
+
+[badge-license]: https://img.shields.io/badge/license-GPL_3-green.svg

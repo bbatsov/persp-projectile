@@ -31,7 +31,7 @@
 ;;
 ;; This library bridges perspective mode to the awesome library
 ;; Projectile.  The idea is to create a separate perspective when
-;; switching project.  A perspective is an independant workspace for
+;; switching project.  A perspective is an independent workspace for
 ;; Emacs, similar to multiple desktops in Gnome and MacOS.  I often
 ;; work on many projects at the same time, and using perspective and
 ;; projectile together allows me to easily know which project I'm

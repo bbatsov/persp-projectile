@@ -56,7 +56,7 @@ project, this advice creates a new perspective for that project."
   `(defadvice ,func-name (before projectile-create-perspective-after-switching-projects activate)
      "Create a dedicated perspective for current project's window after switching projects."
      (let ((project-name (projectile-project-name)))
-       (when (and persp-mode projectile-project-p)
+       (when (and persp-mode (projectile-project-p))
          (persp-switch project-name)))))
 
 (projectile-persp-bridge projectile-dired)

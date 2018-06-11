@@ -80,7 +80,7 @@ perspective."
          (persp (gethash name (perspectives-hash))))
     (cond
      ;; project-specific perspective already exists
-     ((and persp (not (equal persp persp-curr)))
+     ((and persp (not (equal persp (persp-curr))))
       (persp-switch name))
      ;; project-specific perspective doesn't exist
      ((not persp)

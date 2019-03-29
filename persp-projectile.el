@@ -82,6 +82,10 @@ perspective."
      ;; project-specific perspective already exists
      ((and persp (not (equal persp (persp-curr))))
       (persp-switch name))
+     ;; persp exists but not match with projectile-name
+     ((and persp (not (equal persp name)))
+      (persp-switch name)
+      (projectile-switch-project-by-name project-to-switch))
      ;; project-specific perspective doesn't exist
      ((not persp)
       (let ((frame (selected-frame)))

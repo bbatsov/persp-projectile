@@ -54,4 +54,23 @@ handy keybinding.
 (define-key projectile-mode-map (kbd "s-s") 'projectile-persp-switch-project)
 ```
 
+## Known issues
+
+Check out the project's
+[issue list](https://github.com/bbatsov/persp-projectile/issues?sort=created&direction=desc&state=open)
+a list of unresolved issues. By the way - feel free to fix any of them
+and send me a pull request. :-)
+
+## Contributors
+
+Here's a [list](https://github.com/bbatsov/persp-projectile/contributors) of all the people who have contributed to the
+development of persp-projectile.
+
+## License
+
+Copyright © 2014-2021 Bozhidar Batsov and
+[contributors](https://github.com/bbatsov/persp-projectile/contributors).
+
+Distributed under the GNU General Public License, version 3
+
 [badge-license]: https://img.shields.io/badge/license-GPL_3-green.svg
